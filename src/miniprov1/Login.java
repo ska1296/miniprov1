@@ -21,6 +21,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+*
+* @author Shubh Ketan
+*/
+
 public class Login extends JFrame implements ActionListener {
 	private JTextField user;
 	private JPasswordField Password;

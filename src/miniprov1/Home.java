@@ -24,6 +24,11 @@ import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/**
+*
+* @author Shubh Ketan
+*/
+
 public class Home extends JFrame {
 
 	private JPanel contentPane;

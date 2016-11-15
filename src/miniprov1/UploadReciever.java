@@ -9,6 +9,12 @@ import java.sql.PreparedStatement;
 import java.io.*; 
 
 import javax.swing.JOptionPane;
+
+/**
+*
+* @author Shubh Ketan
+*/
+
 class UploadReciever
 {
 	ServerSocket serverSocket;
