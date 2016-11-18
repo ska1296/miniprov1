@@ -61,7 +61,7 @@ public class Home extends JFrame implements ActionListener {
 	
 	public Home() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 384);
+		setBounds(100, 100, 981, 538);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
@@ -86,14 +86,41 @@ public class Home extends JFrame implements ActionListener {
 				adl.setResizable(false);
 			}
 		});
-		button_2.setBounds(459, 254, 174, 62);
+		
+		JButton AnonyUpload = new JButton("ANONYMOUS Upload");
+		AnonyUpload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				AnonymousUpload uup=new AnonymousUpload();
+				uup.setBounds(100, 100, 680, 370);
+				uup.setResizable(false);
+				uup.setVisible(true);
+			}
+		});
+		
+		JButton btnReadAnonymousContent = new JButton("Read Anonymous Content");
+		btnReadAnonymousContent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				AnonymousReaderServer ars = new AnonymousReaderServer();
+				AnonymousReader rre=new AnonymousReader();
+				rre.setBounds(90, 30, 1120, 700);
+				rre.setResizable(false);
+				rre.setVisible(true);
+			}
+		});
+		btnReadAnonymousContent.setBounds(760, 413, 174, 62);
+		contentPane.add(btnReadAnonymousContent);
+		AnonyUpload.setBounds(138, 113, 174, 62);
+		contentPane.add(AnonyUpload);
+		button_2.setBounds(471, 254, 174, 62);
 		contentPane.add(button_2);
-		button_1.setBounds(459, 113, 174, 62);
+		button_1.setBounds(471, 113, 174, 62);
 		contentPane.add(button_1);
 
 		JButton button = new JButton("Read Content");
 		button.addActionListener(this);
-		button.setBounds(459, 413, 174, 62);
+		button.setBounds(471, 413, 174, 62);
 		contentPane.add(button);
 
 		Random rand = new Random();
