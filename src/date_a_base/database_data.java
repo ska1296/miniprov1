@@ -34,8 +34,7 @@ public class database_data
 
 			// execute the query, and get a java resultset
 			ResultSet rs = st.executeQuery(query);
-
-
+			
 			// iterate through the java resultset
 			while (rs.next())
 			{
@@ -48,8 +47,8 @@ public class database_data
 				strStart_Date= newFormat.format(StartDate);//store date in a string
 				strEnd_Date= newFormat.format(EndDate);//store date in a string
 				
-				if (((dateToday.compareTo(StartDate) > 0) ||(dateToday.compareTo(StartDate) < 0)) &&  (dateToday.compareTo(EndDate) < 0))
-				{
+				//if (((dateToday.compareTo(StartDate) > 0) ||(dateToday.compareTo(StartDate) < 0)) &&  (dateToday.compareTo(EndDate) < 0))
+				//{
 					String strSubject = rs.getString("Subject");
 					System.out.println("In Sender "+strSubject);
 					System.out.println(strSubject);//send data to 'ReadContent'
@@ -58,7 +57,7 @@ public class database_data
 					//System.out.println(strContent);
 					System.out.println("start  "+strStart_Date);
 					System.out.println("end  "+strEnd_Date);
-				}
+				//}
 			}
 			st.close();
 		}

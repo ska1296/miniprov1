@@ -22,7 +22,7 @@ public class ReadContentSender
 	{
 		int tep;
 		Socket sock;
-		ServerSocket ServerSock=new ServerSocket(6005);
+		ServerSocket ServerSock=new ServerSocket(6008);
 		try
 		{
 
@@ -43,7 +43,7 @@ public class ReadContentSender
 			{
 				sock=ServerSock.accept();
 				ObjectOutputStream oosMatter=new ObjectOutputStream(sock.getOutputStream());
-				String query="select * from noticebase";
+				String query="select * from notice";
 				// create the java statement
 				java.sql.Statement st = cn.createStatement();
 

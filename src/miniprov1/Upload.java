@@ -33,11 +33,6 @@ import java.net.Socket;
 
 import com.toedter.calendar.JDateChooser;
 
-/**
-*
-* @author Shubh Ketan
-*/
-
 public class Upload extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
@@ -67,7 +62,7 @@ public class Upload extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Upload() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 700, 384);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -84,7 +79,8 @@ public class Upload extends JFrame implements ActionListener {
 				ReadContentSender RCS=new ReadContentSender();
 				ReadContent frame = new ReadContent();
 				frame.setVisible(true);
-				frame.setBounds(350, 180, 700, 423);
+				frame.setBounds(90, 30, 1120, 700);
+				frame.setResizable(false);
 			}
 		});
 		readContent.setBounds(299, 306, 207, 28);
@@ -149,20 +145,20 @@ public class Upload extends JFrame implements ActionListener {
 						}
 					}
 				});
-				btnBrowse.setBounds(510, 22, 97, 36);
+				btnBrowse.setBounds(0,0,0,0);
 				contentPane.add(btnBrowse);
 				
 						ImageField = new JTextField();
-						ImageField.setBounds(268, 22, 232, 34);
+						ImageField.setBounds(0,0,0,0);
 						contentPane.add(ImageField);
 						ImageField.setColumns(10);
 						
 								JLabel lblImage = new JLabel("Image");
-								lblImage.setBounds(64, 24, 107, 34);
+								lblImage.setBounds(0,0,0,0);
 								contentPane.add(lblImage);
 		try
 		{
-			sock=new Socket("localhost",3030);
+			sock=new Socket("localhost",1515);
 		}
 		catch(IOException e)
 		{
@@ -189,8 +185,9 @@ public class Upload extends JFrame implements ActionListener {
 				oosSubject.writeObject(subject);
 				oosStartDate.writeObject(StartDate);
 				oosEndDate.writeObject(EndDate);
-				Home h=new Home();
-				h.setVisible(true);
+				//Home h=new Home();
+				//h.setVisible(true);
+				JOptionPane.showMessageDialog(null,"NOTICE UPLOADED :)");
 			}
 
 			catch(Exception ex)

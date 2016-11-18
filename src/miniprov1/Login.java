@@ -16,6 +16,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -30,6 +33,7 @@ public class Login extends JFrame implements ActionListener {
 	private JTextField user;
 	private JPasswordField Password;
 	int session;
+	Socket sock;
 
 	/**
 	 * Launch the application.
@@ -57,12 +61,12 @@ public class Login extends JFrame implements ActionListener {
 		
 				JButton button_1 = new JButton("Jump to content");
 				button_1.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) 
-					{
+					public void actionPerformed(ActionEvent e) {
 						ReadContentSender RCS=new ReadContentSender();
 						ReadContent frame = new ReadContent();
 						frame.setVisible(true);
-						frame.setBounds(350, 180, 700, 423);
+						frame.setBounds(90, 30, 1120, 700);
+						frame.setResizable(false);
 					}
 				});
 				button_1.setBounds(233, 320, 212, 28);
@@ -98,55 +102,35 @@ public class Login extends JFrame implements ActionListener {
 		lblNewLabel.setBounds(0, 0, 684, 398);
 		lblNewLabel.setIcon(new ImageIcon("E:\\prog\\eclipse1\\minipro\\src\\login.jpg"));
 		getContentPane().add(lblNewLabel);
+		
+		try
+		{
+			sock=new Socket("localhost",4599);
+		}
+		catch(IOException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
 	public void actionPerformed(ActionEvent e) {
-		String str;   
-		if(user.getText().trim().length()==0||Password.getPassword().length==0)
-		{
-			JOptionPane.showMessageDialog(null, "Field Can't be left blank");
+		
+		try 
+		{ 
+			ObjectOutputStream oosUser=new ObjectOutputStream(sock.getOutputStream());//Creates an ObjectOutputStream that writes to the specified OutputStream
+			ObjectOutputStream oosPass=new ObjectOutputStream(sock.getOutputStream());
+			String strUser=user.getText(); //use appropriate text field as per requirement
+			String strPass=Password.getText();
+			
+			oosUser.writeObject(strUser);//sends Content's data to sever read above
+			oosPass.writeObject(strPass);//sends data to sever read above
+			//Home h=new Home();
+			//h.setVisible(true);
+			this.setVisible(false);
 		}
-		else
-		{
-			str = new String(Password.getPassword());
-			{    
-				try
-				{  
-					Class.forName("com.mysql.jdbc.Driver");//loads driver
-					String url11="jdbc:mysql://localhost/mydb?user=root&password=qwerty";
-					Connection cn; 
-					cn = DriverManager.getConnection(url11); //connection established
-					String sql = "select * from noticefy where email='"+user.getText()+"' and pass='"+str+"'";
-					PreparedStatement ps = cn.prepareStatement(sql);
-					ResultSet rs = ps.executeQuery();
-					int count=0;
-					while(rs.next())
-					{
-						session=rs.getInt(1);
-						count++;
-						if(rs.getString(2).equals("admin@admin"))
-						{
 
-						}
-						else 
-						{
-							Upload h=new Upload();
-							h.setVisible(true);
-							h.setBounds(100, 100, 700, 384);
-						}
-					}
-					if(count==0)
-					{
-						JOptionPane.showMessageDialog(null,"Invalid Credentials");
-					} 
-					else 
-					{
-						this.setVisible(false);}
-				}
-				catch(Exception e12)
-				{
-					JOptionPane.showMessageDialog(null, e12.getMessage());
-				}
-			}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
 		}
 	}
 }

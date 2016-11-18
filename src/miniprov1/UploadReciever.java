@@ -24,7 +24,8 @@ class UploadReciever
 	{ 
 		try 
 		{ 
-			serverSocket=new ServerSocket(3030); //Creates a server socket, bound to the specified port
+			serverSocket=new ServerSocket(1515); //Creates a server socket, bound to the specified port
+			System.out.println("DONE");
 			while(true) 
 			{ 
 				sock=serverSocket.accept(); //Listens for a connection to be made to this socket and accepts it
@@ -34,7 +35,7 @@ class UploadReciever
 				ObjectInputStream oisSubject=new ObjectInputStream(sock.getInputStream());
 				ObjectInputStream oisStartDate=new ObjectInputStream(sock.getInputStream());
 				ObjectInputStream oisEndDate=new ObjectInputStream(sock.getInputStream());
-				String strImage=oisImage.readObject().toString(); //c-onverts to string
+				String strImage=oisImage.readObject().toString(); //converts to string
 				String strContent=oisContent.readObject().toString();
 				String strSubject=oisSubject.readObject().toString();
 				String strStartDate=oisStartDate.readObject().toString();
@@ -48,12 +49,13 @@ class UploadReciever
 				Class.forName("com.mysql.jdbc.Driver");//loads driver
 				String url="jdbc:mysql://localhost/mydb?user=root&password=qwerty";
 				Connection cn=DriverManager.getConnection(url); //connection established
-				String q="insert into noticebase (Subject, Content, Start_Date, End_Date) "+"values (? ,?, ?, ?)";
+				String q="insert into notice (Subject, Content, Start_Date, End_Date) "+"values (? ,?, ?, ?)";
 				PreparedStatement st=cn.prepareStatement(q);
 				st.setString (1, strSubject);
 				st.setString (2, strContent);
 				st.setString (3, strStartDate);
 				st.setString (4, strEndDate);
+				System.out.println("LOL");
 				tep=st.executeUpdate();
 				cn.close();
 				System.out.println("HELLO!");
