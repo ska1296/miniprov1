@@ -24,7 +24,7 @@ class AddUserReciever
 	{ 
 		try 
 		{ 
-			serverSocket=new ServerSocket(4059); //Creates a server socket, bound to the specified port
+			serverSocket=new ServerSocket(7001); //Creates a server socket, bound to the specified port
 			System.out.println("DONE");
 			while(true) 
 			{ 

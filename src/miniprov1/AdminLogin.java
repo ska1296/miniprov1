@@ -106,7 +106,7 @@ public class AdminLogin extends JFrame implements ActionListener {
 		
 		try
 		{
-			sock=new Socket("localhost",4989);
+			sock=new Socket("localhost",7002);
 		}
 		catch(IOException e)
 		{
@@ -125,7 +125,7 @@ public class AdminLogin extends JFrame implements ActionListener {
 			oosUser.writeObject(strUser);//sends Content's data to sever read above
 			oosPass.writeObject(strPass);//sends data to sever read above
 			//Home h=new Home();
-			this.setVisible(true);
+			this.setVisible(false);
 			
 		}
 

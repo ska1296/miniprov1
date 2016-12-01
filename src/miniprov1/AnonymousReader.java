@@ -67,7 +67,7 @@ public class AnonymousReader extends JFrame implements ActionListener {
 		try
 		{
 
-			sock=new Socket("localhost",6010); //Creates a stream socket and connects it to the specified port number on the named host
+			sock=new Socket("localhost",7003); //Creates a stream socket and connects it to the specified port number on the named host
 			ObjectInputStream ois=new ObjectInputStream(sock.getInputStream());//reads from the specified InputStream
 			System.out.println("reading obj");
 			while(true)

@@ -23,7 +23,7 @@ public class AdminLoginReader {
 		
 		try 
 		{ 			
-			serverSocket=new ServerSocket(4989); //Creates a server socket, bound to the specified port
+			serverSocket=new ServerSocket(7002); //Creates a server socket, bound to the specified port
 			System.out.println("DONE");
 			while(true) 
 			{ 

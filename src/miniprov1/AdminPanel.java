@@ -57,10 +57,25 @@ public class AdminPanel extends JFrame {
 				noticeDel.setResizable(false);
 			}
 		});
+		
+		JButton btnDeleteNoticeanonymous = new JButton("DELETE 'Anonymous'  NOTICE");
+		btnDeleteNoticeanonymous.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				delAnonymNotice dan=new delAnonymNotice();
+				dan.setVisible(true);
+				dan.setBounds(100, 100, 440, 290);
+				dan.setResizable(false);
+			}
+		});
+		btnDeleteNoticeanonymous.setOpaque(true);
+		btnDeleteNoticeanonymous.setFont(new Font("Arial Black", Font.BOLD, 13));
+		btnDeleteNoticeanonymous.setBackground(new Color(153, 51, 255));
+		btnDeleteNoticeanonymous.setBounds(90, 315, 280, 50);
+		contentPane.add(btnDeleteNoticeanonymous);
 		delNotice.setFont(new Font("Arial Black", Font.BOLD, 13));
 		delNotice.setOpaque(true);
 		delNotice.setBackground(new Color(153, 51, 255));
-		delNotice.setBounds(90, 273, 165, 50);
+		delNotice.setBounds(90, 243, 165, 50);
 		contentPane.add(delNotice);
 		
 		JButton AddUser = new JButton("ADD USER");
@@ -76,7 +91,7 @@ public class AdminPanel extends JFrame {
 		AddUser.setFont(new Font("Arial Black", Font.BOLD, 13));
 		AddUser.setOpaque(true);
 		AddUser.setBackground(new Color(0, 153, 255));
-		AddUser.setBounds(90, 70, 165, 50);
+		AddUser.setBounds(90, 40, 165, 50);
 		contentPane.add(AddUser);
 		
 		JButton delUser = new JButton("DELETE USER");
@@ -91,7 +106,7 @@ public class AdminPanel extends JFrame {
 		delUser.setFont(new Font("Arial Black", Font.BOLD, 13));
 		delUser.setOpaque(true);
 		delUser.setBackground(new Color(102, 153, 255));
-		delUser.setBounds(90, 137, 165, 50);
+		delUser.setBounds(90, 107, 165, 50);
 		contentPane.add(delUser);
 		
 		JButton addNotice = new JButton("ADD NOTICE");
@@ -106,7 +121,7 @@ public class AdminPanel extends JFrame {
 		addNotice.setFont(new Font("Arial Black", Font.BOLD, 13));
 		addNotice.setOpaque(true);
 		addNotice.setBackground(new Color(153, 153, 255));
-		addNotice.setBounds(90, 204, 165, 50);
+		addNotice.setBounds(90, 174, 165, 50);
 		contentPane.add(addNotice);
 		
 		JLabel label = new JLabel("");

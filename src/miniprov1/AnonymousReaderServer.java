@@ -22,7 +22,7 @@ public class AnonymousReaderServer
 	{
 		int tep;
 		Socket sock;
-		ServerSocket ServerSock=new ServerSocket(6010);
+		ServerSocket ServerSock=new ServerSocket(7003);
 		try
 		{
 

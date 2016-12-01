@@ -16,7 +16,7 @@ public class delNoticeReciever
 	{
 		try
 		{
-			serverSock=new ServerSocket(4045);
+			serverSock=new ServerSocket(7006);
 			System.out.println("DONE");
 			while(true) 
 			{ 

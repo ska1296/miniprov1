@@ -22,7 +22,7 @@ public class ReadContentSender
 	{
 		int tep;
 		Socket sock;
-		ServerSocket ServerSock=new ServerSocket(6008);
+		ServerSocket ServerSock=new ServerSocket(6006);
 		try
 		{
 

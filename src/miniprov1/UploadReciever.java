@@ -24,7 +24,7 @@ class UploadReciever
 	{ 
 		try 
 		{ 
-			serverSocket=new ServerSocket(1515); //Creates a server socket, bound to the specified port
+			serverSocket=new ServerSocket(7011); //Creates a server socket, bound to the specified port
 			System.out.println("DONE");
 			while(true) 
 			{ 

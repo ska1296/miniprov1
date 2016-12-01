@@ -105,7 +105,7 @@ public class Login extends JFrame implements ActionListener {
 		
 		try
 		{
-			sock=new Socket("localhost",4599);
+			sock=new Socket("localhost",7099);
 		}
 		catch(IOException e)
 		{
@@ -125,7 +125,7 @@ public class Login extends JFrame implements ActionListener {
 			oosPass.writeObject(strPass);//sends data to sever read above
 			//Home h=new Home();
 			//h.setVisible(true);
-			this.setVisible(false);
+//			this.setVisible(false);
 		}
 
 		catch(Exception ex)

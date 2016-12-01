@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import com.toedter.components.JLocaleChooser;
 import com.toedter.calendar.JDateChooser;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -45,6 +46,7 @@ public class readDate extends JFrame implements ActionListener
 	 */
 	JTextArea textArea;
 	JDateChooser startDate;
+	private JButton btnNewButton;
 	public readDate() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -62,6 +64,13 @@ public class readDate extends JFrame implements ActionListener
 		JButton btnCheck = new JButton("check");
 		btnCheck.addActionListener(this);
 		startDate.add(btnCheck, BorderLayout.NORTH);
+		
+		btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		startDate.add(btnNewButton, BorderLayout.WEST);
 	}
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -87,7 +96,7 @@ public class readDate extends JFrame implements ActionListener
 			//comparing the dates
 			
 			if (dateToday.compareTo(readDate) > 0) {
-                System.out.println("read date is before today");
+				JOptionPane.showMessageDialog(null, "date be");
             } else if (dateToday.compareTo(readDate) < 0) {
                 System.out.println("read date is after today");
             } else if (dateToday.compareTo(readDate) == 0) {

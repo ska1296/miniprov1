@@ -95,7 +95,7 @@ public class AddUser extends JFrame implements ActionListener  {
 		
 		try
 		{
-			sock=new Socket("localhost",4059);
+			sock=new Socket("localhost",7001);
 		}
 		catch(IOException e)
 		{

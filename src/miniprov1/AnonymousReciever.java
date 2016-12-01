@@ -24,7 +24,7 @@ class AnonymousReciever
 	{ 
 		try 
 		{ 
-			serverSocket=new ServerSocket(3620); //Creates a server socket, bound to the specified port
+			serverSocket=new ServerSocket(7004); //Creates a server socket, bound to the specified port
 			System.out.println("DONE");
 			while(true) 
 			{ 

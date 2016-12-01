@@ -158,7 +158,7 @@ public class AnonymousUpload extends JFrame implements ActionListener {
 		contentPane.add(label);
 		try
 		{
-			sock=new Socket("localhost",3620);
+			sock=new Socket("localhost",7004);
 		}
 		catch(IOException e)
 		{

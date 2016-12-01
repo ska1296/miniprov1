@@ -109,7 +109,7 @@ public class Home extends JFrame implements ActionListener {
 				rre.setVisible(true);
 			}
 		});
-		btnReadAnonymousContent.setBounds(760, 413, 174, 62);
+		btnReadAnonymousContent.setBounds(760, 413, 186, 62);
 		contentPane.add(btnReadAnonymousContent);
 		AnonyUpload.setBounds(138, 113, 174, 62);
 		contentPane.add(AnonyUpload);

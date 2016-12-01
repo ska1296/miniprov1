@@ -24,7 +24,7 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.SystemColor;
 
-public class delNotice extends JFrame implements ActionListener {
+public class delAnonymNotice extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField Subject;
@@ -36,7 +36,7 @@ public class delNotice extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					delNotice frame = new delNotice();
+					delAnonymNotice frame = new delAnonymNotice();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,9 +50,10 @@ public class delNotice extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public delNotice() {
+	public delAnonymNotice() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 440, 290);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		setContentPane(contentPane);
@@ -69,16 +70,17 @@ public class delNotice extends JFrame implements ActionListener {
 		btnDelete.setBounds(194, 181, 89, 23);
 		contentPane.add(btnDelete);
 
-		JLabel lblSubjectOfNotice = new JLabel("Notice To Be Delted");
+		JLabel lblSubjectOfNotice = new JLabel("'Anomonymous' Notice To Be Delted");
+		lblSubjectOfNotice.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSubjectOfNotice.setForeground(new Color(0, 0, 0));
 		lblSubjectOfNotice.setFont(new Font("Algerian", Font.PLAIN, 16));
-		lblSubjectOfNotice.setBounds(159, 120, 228, 14);
+		lblSubjectOfNotice.setBounds(72, 120, 315, 14);
 		contentPane.add(lblSubjectOfNotice);
 
 		JButton btnReadSubjectFrom = new JButton("Read Subject From List");
 		btnReadSubjectFrom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ReadContent rc=new ReadContent();
+				AnonymousReader rc=new AnonymousReader();
 				rc.setVisible(true);
 			}
 		});
@@ -98,7 +100,7 @@ public class delNotice extends JFrame implements ActionListener {
 		
 		try
 		{
-			sock=new Socket("localhost",7006);
+			sock=new Socket("localhost",7005);
 		}
 		catch(IOException e)
 		{
@@ -114,7 +116,7 @@ public class delNotice extends JFrame implements ActionListener {
 			oosSubject.writeObject(subject);
 			//Home h=new Home();
 			//h.setVisible(true);
-			ReadContentSender RCS=new ReadContentSender();
+			AnonymousReaderServer RCS=new AnonymousReaderServer();
 			
 			JOptionPane.showMessageDialog(null,"DELETED!!");
 		}

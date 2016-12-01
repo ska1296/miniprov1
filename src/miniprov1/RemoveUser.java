@@ -89,7 +89,7 @@ public class RemoveUser extends JFrame implements ActionListener {
 		
 		try
 		{
-			sock=new Socket("localhost",4044);
+			sock=new Socket("localhost",7010);
 		}
 		catch(IOException e)
 		{

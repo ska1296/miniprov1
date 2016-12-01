@@ -23,7 +23,7 @@ public class LoginReader {
 		
 		try 
 		{ 			
-			serverSocket=new ServerSocket(4599); //Creates a server socket, bound to the specified port
+			serverSocket=new ServerSocket(7099); //Creates a server socket, bound to the specified port
 			System.out.println("DONE");
 			while(true) 
 			{ 

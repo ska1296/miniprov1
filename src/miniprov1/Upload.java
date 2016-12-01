@@ -158,7 +158,7 @@ public class Upload extends JFrame implements ActionListener {
 								contentPane.add(lblImage);
 		try
 		{
-			sock=new Socket("localhost",1515);
+			sock=new Socket("localhost",7011);
 		}
 		catch(IOException e)
 		{

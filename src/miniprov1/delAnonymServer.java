@@ -6,36 +6,36 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-public class RemoveUserReciever 
+public class delAnonymServer 
 {
 	int tep;
 	Socket sock;
 	ServerSocket serverSock;
 
-	RemoveUserReciever()
+	delAnonymServer()
 	{
 		try
 		{
-			serverSock=new ServerSocket(7010);
+			serverSock=new ServerSocket(7005);
 			System.out.println("DONE");
 			while(true) 
 			{ 
 				sock=serverSock.accept(); //Listens for a connection to be made to this socket and accepts it
 				//.accept inside while loop ensures that the connection is maintained while the thing is still open
 				
-				ObjectInputStream oisUser=new ObjectInputStream(sock.getInputStream());//read's client's message on that socket
+				ObjectInputStream oisSubject=new ObjectInputStream(sock.getInputStream());//read's client's message on that socket
 				
-				String strUser=oisUser.readObject().toString();
+				String strSubject=oisSubject.readObject().toString();
 				
-				System.out.println(strUser);
+				System.out.println(strSubject);
 
 				Class.forName("com.mysql.jdbc.Driver");//loads driver
 				String url="jdbc:mysql://localhost/mydb?user=root&password=qwerty";
 				Connection cn=DriverManager.getConnection(url); //connection established
 				
-				String q="DELETE FROM noticefy WHERE email = ?";
+				String q="DELETE FROM anonymous WHERE Subject = ?";
 				PreparedStatement st=cn.prepareStatement(q);
-				st.setString (1, strUser);
+				st.setString (1, strSubject);
 				tep=st.executeUpdate();
 				
 				System.out.println("LOL");
@@ -52,6 +52,6 @@ public class RemoveUserReciever
 	}
 	public static void main(String ar[]) 
 	{ 
-		RemoveUserReciever s=new RemoveUserReciever(); 
+		delAnonymServer s=new delAnonymServer(); 
 	} 
 }
